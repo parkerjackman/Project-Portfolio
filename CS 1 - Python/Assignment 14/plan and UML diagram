@@ -1,0 +1,47 @@
+"""
+Parker Jackman
+Assignment 14
+Development Lifecycle Plan and UML Diagrams
+"""
+
+UML Diagrams
+
+Card
+----------------
++ id
+- value
+- coin
+- mano
+----------------
++ getValue()
++ getCoin()
++ getMano()
++ str()
+----------------
+
+
+Deck
+----------------
+none
+----------------
++ shuffle()
++ draw()
+----------------
+
+
+Requirement Specification
+
+
+System Analysis
+
+
+System Design
+
+
+Testing
+
+
+    Problems:
+
+
+
