@@ -1,0 +1,172 @@
+"""
+Parker Jackman
+Assignment 13
+Software Development Lifecycle and UML Diagrams
+"""
+
+Requirement Specifications
+    Display menu
+        - Enter Circle
+        - Enter Rectangle
+        - Remove Shape
+        - Draw Shapes
+        - Exit
+
+    Input for Circle
+        position (center)
+        radius
+        color
+
+    Input for Rectangle
+        position (bottom left corner)
+        width
+        height
+        color
+
+    Remove Shape
+        display number of items in the list
+        let user enter number to remove that shape from the list
+
+    Shapes are stored as objects in single list
+    list used to identify color
+
+System Analysis
+
+
+System Design - Circle class
+
+    import turtle
+    private variables:
+        positionX
+        positionY
+        radius
+        color
+
+    def draw()
+        set heading to 0
+        go to positionX, positionY - radius
+        determine fill color
+        draw circle
+
+    def __getColor()
+        determine color used
+
+
+System Design - Rectangle class
+
+    import turtle
+    private variables:
+        positionX
+        positionY
+        width
+        height
+        color
+
+    def draw()
+        set heading to 0
+        go to positionX, positionY
+        determine fill color
+        draw rectangle
+
+    def __getColor()
+        determine color used
+
+
+System Design - Task 3
+
+    import turtle
+    import circle and rectangle classes
+    def main fuction
+        empty list 'shapes'
+        while loop until done
+            display menu
+                Pick an option:
+                 (1) Enter Circle
+                 (2) Enter Rectangle
+                 (3) Remove Shape
+                 (4) Draw Shapes
+                 (5) Exit
+                What do you want to do?
+
+            Enter Circle:
+                get input
+                create circle object
+                append new circle to shapes list
+
+            Enter Rectangle:
+                get input
+                create rectangle object
+                append new rectangle to shapes list
+
+            Remove Shape
+                print length of shapes list
+                ask which one user wants to remove
+                pop user choice
+
+            Draw Shapes
+                clear screen
+                for loop for shapes list
+                    draw shape
+
+            Exit
+                break
+
+        print goodbye message
+
+
+    call main()
+
+
+Testing
+    choose Enter circle
+    position: 50, 20
+    radius: 30
+    color: red
+
+    choose Enter rectangle
+    position: -50,50
+    width: 20
+    height: 50
+    color: blue
+
+    choose Draw Shapes
+        Expected: draw correct circle and rectangle
+
+    choose Remove Shape
+        Expected: 2
+    1
+
+    choose Draw Shapes
+        Expected: draw above circle but no rectangle
+
+  Problems: NONE
+
+
+
+UML Diagrams
+
+Circle
+-------------
+- positionX
+- positionY
+- radius
+- color
+- colorChoice
+-------------
++ draw()
+- getColor()
+-------------
+
+
+Rectangle
+-------------
+- positionX
+- positionY
+- width
+- height
+- color
+- colorChoice
+-------------
++ draw()
+- getColor()
+-------------
