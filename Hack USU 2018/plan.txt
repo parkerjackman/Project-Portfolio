@@ -1,0 +1,36 @@
+
+
+Formulas
+
+
+
+Plan
+
+    Character class
+        name
+        type of character
+        life
+        items in inventory
+
+    movement class
+        keep track of location and return if asked
+        moving
+            go north
+                increase y val by input
+                go to x y point
+            go east
+            go south
+            go west
+        go to locations
+            turtle.goto
+
+    Map class
+        (Maybe leave out)
+        draw starting map
+            compass
+            scale
+        draw update
+            (plan a map and draw map nearby)
+            (map will display everything in a straight line
+
+
