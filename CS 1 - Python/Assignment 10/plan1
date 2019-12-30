@@ -1,0 +1,117 @@
+"""
+Parker Jackman
+Assignment 10
+Plan 1
+"""
+
+Requirement Specifications
+    Input
+        Which mode:
+            1: rectangle pattern
+                center coordinates, offset, width, height, rotation
+            2: circle pattern
+                center coordinates, offset, radius
+            3: Super pattern
+                number of patterns
+
+    Output
+        ring of specified shapes of random color.
+            random shape and variables in super pattern mode
+
+System Design
+    import random
+    import turtle
+
+    define reset()
+        turtle.reset()
+
+    define setup()
+        set fast speed
+        set screen to 1000 x 800
+
+    define define drawRectanglePattern()
+        loop 'count' times
+            go to center coordinates
+            set header
+            forward offset
+            rotate according to input
+            set random color
+            draw rectangle with given height and width
+            rotate heading 360 / count
+
+
+    define drawRectangle()
+        forward width
+        left 90
+        forward height
+        left 90
+        forward width
+        left 90
+        forward height
+        left 90
+
+    define drawCirclePattern()
+        loop 'count' times
+            go to center coordinates
+            set header
+            forward offset
+            rotate 90 degrees right
+            set random color
+            draw circle with given radius
+
+
+    define drawSuperPattern()
+        loop num times
+            pick rectangle pattern or circle pattern randomly
+            draw pattern with all parameters random within reasonable range
+
+
+    define setRandomColor()
+        pick random number between 1 and 3
+        different color for each number
+
+    define done()
+        turtle.done()
+
+Testing
+
+  Test 1
+    Mode 1
+    center coordinates: 0, 0
+    height: 20
+    width: 5
+    offset: 15
+    rotation: 30
+    number of rectangles: 30
+    play again? 1
+
+    Expected output
+        circle of 30 randomly colored rectangles with width and height as above.
+        Closest corner of rectangles should be 15 away from 0, 0
+        with each rectangle rotated 30 degrees from radial vector
+
+        Then it should ask which mode you want again with rectangle pattern still there
+
+  Test 2
+    Mode 2
+    Center Coordinates:100, -50
+    Offset: -50
+    Radius: 75
+    count: 100
+    play again? 2
+
+    Expected output
+        ring of 100 randomly colored circles with radius 75 and closest edge 50 away from 100, -50
+        since offset is negative, drawing should start on left side rather than right
+
+        Then it should ask which mode you want again with pattern erased
+
+  Test 3
+    Mode 3
+    number of patterns: 5
+
+    Expected output
+        5 rings in various spots each one either a circle pattern or rectangle pattern with all parameters random
+
+
+    Problems: NONE
