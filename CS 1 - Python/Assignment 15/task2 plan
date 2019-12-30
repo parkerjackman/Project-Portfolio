@@ -1,0 +1,119 @@
+"""
+Parker Jackman
+Assignment 15
+Task 2 plan
+"""
+
+Requirement Specification
+    Prompt the user for the number of players. This does not include the dealer. You may have 1 - 5 players
+    Each player starts with $100 in their account
+    A player can continue until they are out of money
+    Each round
+    Prompt each player one at a time for their bet amount.
+        Display the current balance for each user as part of their prompt
+        The minimum bet is $5 or their entire balance, whichever is lower
+    Deal the cards
+        Each round will have a fresh deck of shuffled cards
+        Cards are dealt one at a time beginning with player 1 and ending with the dealer
+        Each player (including the dealer) gets two cards, meaning there will be two cycles of dealing cards to each player.
+    After dealing all cards display the dealer's second card
+    For each player starting with player 1
+        Show the player hand
+        Ask the player if they'd hit (take another card) or hold
+        Repeat until they hold or bust (total of cards is over 21)
+        If they bust they lose
+        If the player holds then the next player goes
+    After all players are done the dealer complete its turn
+        Display both dealer cards (print each on a new line)
+        Use time.sleep() to wait for 1 second before dealing another card(s) to the dealer
+        The dealer must take a card until its total is 17 or higher
+        If the dealer's initial hand is 17 or higher it does not take a card
+        Use appropriate messages so the players know what the dealer is doing
+        Ex: "The dealer takes a card" / "The dealer busts" / "The dealer holds"
+    Determining winners
+        If the dealer busts (goes over 21), all players who did not bust win
+        If the player and dealer totals are the same they tie
+        If the players hand is lower than the dealer, the player loses
+        Use appropriate messages to let each player know what their result is
+    Player payouts
+        Win - add the amount bet to the player's balance
+        Tie - neither add nor subtract from he player's balance
+        Lose - subtract the amount bet from the player's balance
+        Display each user's balance (including those who have lost all their money)
+    Ask to Play again
+        Yes: Repeat the round for all players with a positive balance
+        No
+            Print a Thank You message
+            Print each player's name (their player number) and balance starting with the one with the highest.
+            You should perform a sort first.
+
+System Design
+    Get number of players
+    Big loop for each round
+        Loop to get each active player's bet
+        Go through each active player's turn
+            show dealer's second card
+            show player's hand
+            hit or hold
+            if hit
+                add another card
+                add card value to hand
+                show new hand
+                check if busted
+                continue turn if didn't bust
+            if hold
+                next player's turn
+        Dealer's turn
+            show dealer's hand
+            wait one second
+            if dealer hand less than 17 add another card
+                continue these steps until either the dealer hand is between 17 and 21 or busts
+        payout
+            if dealer busts
+                everyone who didn't bust gets paid their bet
+            if dealer doesn't bust
+                everyone who beat the dealer but didn't bust gets paid their bet
+                everyone who busted or lost to the dealer loses their bet
+        Ask if want to play again
+            if yes, continue loop for next round with active players
+            if no exit loop
+
+    Once players exit game loop print thank you message with results
+        create players list with length of number of players with [1, 2, 3, ...]
+        insertion sort with accounts to sort from highest to lowest
+            every time a change is made, make same change in players list
+
+        loop to print results
+
+Testing
+
+  Test 1
+    Play with 3 players
+    player 1 bets 80
+    player 2 bets 10
+    player 3 bets 50
+
+    make every player bust then exit game after 1st round
+
+    expected results:
+        Player 2 ended with $90
+        Player 3 ended with $50
+        Player 1 ended with $20
+
+  Test 2
+    play with 3 players
+    players 1 and 3 bets 10
+    player 2 bets 100
+
+    player 1 and 3 try not to bust, but no problem if they do
+    player 2 hit until bust
+
+    continue to 2nd round
+        only player 1 and 3 should be playing
+
+    keep making small bets until one player beats dealer
+        account should increase by proper bet
+
+    after a player beats dealer once exit game loop to see results
+
+  Problems: None
