@@ -1,0 +1,49 @@
+"""
+Parker Jackman
+Assignment 8
+Plan 1
+"""
+
+Requirement Specifications
+    Find and display the 4 perfect numbers less than 10,000
+    Print total running time of the program in seconds
+    Print number of iterations performed by inner loop
+        Goal is less than 16 million iterations
+
+System Analysis
+    start timing
+    loop count is 10000
+    while loop from i = 1 to i = 10000
+    for loop testing each number (j) up to half of i to see if j is a multiple of i
+    stop timing
+    run time = stop - start
+
+System Design
+    import timeit
+    start timing
+
+    i = 1
+    LOOP_COUNT = 10000
+    inner loop starts at 0
+
+    while loop i < LOOP_COUNT
+        sum starts at 0
+        test number is one more than half of i (so j reaches half of i
+        for loop testing if j is a multiple of i. range from 1 to half of i
+            if j is a multiple of i
+                add current value of j to sum
+            else
+                continue
+        if sum == i
+            print that i is a perfect number
+        add 1 to i to test next number
+
+Testing
+
+    Expected output
+        6 is a perfect number
+        28 is a perfect number
+        496 is a perfect number
+        8128 is a perfect number
+        The inner loop ran <number> iterations
+        the program took <number> seconds to execute

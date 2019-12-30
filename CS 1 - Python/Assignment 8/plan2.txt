@@ -1,0 +1,53 @@
+"""
+Parker Jackman
+Assignment 8
+Plan 1
+"""
+
+Requirement Specifications
+    input:
+        stay or switch
+    output:
+        You won x times
+        You won n% of the time
+
+System Analysis
+    stay = 1
+    switch = 2
+    for loop testing if door choice wins
+    win_percent = times_won / 100000
+
+System Design
+    define play game function
+        car door = random number (1 or 2)
+        decision = stay or switch
+            stay = door 1
+            switch = door 2
+        for loop 100,000 times
+            if car door = decision
+                player won
+                add 1 to times won
+            else
+                continue
+        win percent = times_won / 100000
+        print times won
+        print win percent
+
+    again = "y"
+
+    while loop for again = y
+        ask player if they want to play again (y or n)
+        make input lower case
+
+Testing
+
+    Stay:
+        You won 33333 times
+        You won 33.33% of the time
+
+    switch
+        You won 66666 times
+        You won 66.67% of the time
+
+    if they don't play again
+        print "Thanks for playing!"
