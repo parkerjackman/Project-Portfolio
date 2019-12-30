@@ -1,0 +1,225 @@
+"""
+Parker Jackman
+Assignment 12
+Plan for Chessboard and Password
+"""
+
+
+Chessboard Class:
+
+ - Requirement Specification
+    draw a 8x8 chessboard based on starting point, width and height input
+    all methods and data except draw() are private
+    nested loop to draw individual rectangles
+    3 methods used to draw complete chessboard picture
+
+ - System Analysis
+    For odd numbered rows:
+        rectangleCornerX = startX + (width / 8) * j * 2
+        rectangleCornerY = startY + (height / 8) * (i - 1)
+
+    For even numbered rows:
+        rectangleCornerX = startX + width / 8 + width / 8 * j * 2
+        rectangleCornerY = startY + height / 8 * (i - 1)
+
+ - System Design
+
+    import turtle
+
+    Create class
+        Private variables: startX, startY, width, height
+
+    define draw()
+        param -
+            startX
+            startY
+            width - default = 250
+            height - default = 250
+        go to starting point
+        call drawRectangle(width, height)
+        call drawAllRectangles(startX, startY, width, height)
+
+    define drawAllRectangles()
+        param -
+            startX
+            startY
+            width - default is 250
+            height - default is 250
+        loop 8 times (1, 9)
+            if i is odd
+                loop 4 times (0, 4)
+                    rectangleCornerX = startX + width / 8 * j * 2
+                    rectangleCornerY = startY + height / 8 * (i - 1)
+                    go to (rectangleCornerX, rectangleCornerY)
+                    call drawRectangle() with width / 8 and height / 8
+
+            if i is even
+                loop 4 times (0, 4)
+                    rectangleCornerX = startX + width / 8 + width / 8 * j * 2
+                    rectangleCornerY = startY + height / 8 * (i - 1)
+                    go to (rectangleCornerX, rectangleCornerY)
+                    call drawRectangle with width / 8 and height / 8
+
+
+    define drawRectangle()
+        param -
+            height
+            width
+        set heading at 0
+        set speed
+        forward width / 8
+        left 90
+        forward height / 8
+        left 90
+        forward width / 8
+        left 90
+        forward height / 8
+
+
+    define done()
+        turtle.done()
+
+Testing
+
+  Test 1
+    Input:
+        startX, startY = -100, -100
+        height = 200
+        width = 200
+
+    Expected output:
+        rectangle with width = 200 and height = 200 not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Test 2
+    Input:
+        startX, startY = -200, 10
+        height = 100
+        width =
+
+    Expected output:
+        rectangle with width = default (250) and height = 100 not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Test 3
+    Input:
+        startX, startY = 50, -100
+        height =
+        width = 75
+
+    Expected output:
+        rectangle with width = 75 and height = default (250) not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Problems: NONE
+
+  Testing in starter code
+
+
+
+Password Program:
+
+ - Requirement Specification
+    check if password input is valid
+        must be at least 8 characters
+        must be all letters and numbers
+        must contain at least 2 numbers
+        cannot contain "password"
+        cannot end in "123"
+    Only single instance of Password is created
+    output:
+        valid or not
+        if not valid give reason(s) why
+
+ - System Design
+
+    import Password class
+
+    create instance of Password
+
+    while loop
+        get input
+        check if valid
+        if valid display message
+        if invalid display why
+        ask if the user wants to input another password
+        if yes loop again
+        if no exit
+
+ - Testing
+    input: "afhuhef123"
+
+    expected output: "Invalid Password.
+                      Cannot end with '123'
+                      Do you want to enter another password? (Y or N) "
+                            n
+
+
+    input: "password.3"
+
+    expected output: "Invalid Password.
+                      Must only consist of letters and numbers
+                      Must contain at least 2 digits
+                      Cannot contain the word 'password'
+                      Do you want to enter another password? (Y or N) "
+                            n
+
+
+
+    input: "oijfjDojfof29"
+
+    expected output: "Valid Password!
+                      Do you want to enter another password? (Y or N) "
+                            y
+                      Enter Password:
+
+
+
+
+Password Class:
+
+ - Requirement Specification
+    setPassword(), isValid(), getErrorMessage() methods
+    private method for each password test
+
+ - System Design
+    create class
+    private variables: password, message
+
+    setPassword(self, password)
+        self.__password = password
+
+    isValid()
+        if all the tests are true
+            return True
+        else
+            return False
+
+    isLength()
+        if >= 8 characters return True
+        else return False
+
+    isLettersDigits()
+        test if every character is a letter or number
+            loop for each character
+                add to count for letters and numbers
+
+    isTwoDigits()
+        test if there are at least 2 digits
+            loop for each character
+                add to count for numbers
+
+    isNotPassword()
+        check if "password" is part of the password
+
+    isCorrectEnd()
+        check if the end is "123"
+
+    getErrorMessage()
+        add to message each test that was failed

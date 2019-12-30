@@ -1,0 +1,34 @@
+"""
+Parker Jackman
+Assignment 12
+UML Diagrams
+"""
+
+Chessboard
+--------------------------------------------------
+- startX
+- startY
+- width
+- height
+---------------------------------------------------
++ draw()
+- drawRectangle(width, height)
+- drawAllRectangles(startX, startY, width, height)
+---------------------------------------------------
+
+
+
+Password
+------------------------
+- password
+- message
+------------------------
++ setPassword(password)
++ isValid()
+- isLength()
+- isLettersDigits()
+- isTwoDigits
+- isNotPassword()
+- isCorrectEnd()
++ getErrorMessage()
+-------------------------
