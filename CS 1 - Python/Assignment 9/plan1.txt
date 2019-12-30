@@ -1,0 +1,123 @@
+"""
+Parker Jackman
+Assignment 9
+Plan for assn9
+"""
+
+Requirement Specification
+    Get input from user
+        starting x and y
+        width - default is 250
+        height - default is 250
+    Output
+        chessboard turtle drawing
+            boarder rectangle with given width and height
+            8 x 8 grid with alternating black and white rectangles
+    main() is only fuction defined in assn9.py
+    create module called chessboard.py
+        define all functions associated with drawing chessboard
+            drawChessboard()
+            drawAllRectangles()
+            drawRectangle()
+System Analysis
+    For odd numbered rows:
+        rectangleCornerX = startX + (width / 8) * j * 2
+        rectangleCornerY = startY + (height / 8) * (i - 1)
+
+    for even numbered rows:
+        rectangleCornerX = startX + width / 8 + width / 8 * j * 2
+        rectangleCornerY = startY + height / 8 * (i - 1)
+
+System Design
+
+    import turtle
+
+    define drawChessboard()
+        param -
+            startX
+            startY
+            width - default = 250
+            height - default = 250
+        go to starting point
+        call drawRectangle(width, height)
+        call drawAllRectangles(startX, startY, width, height)
+
+    define drawAllRectangles()
+        param -
+            startX
+            startY
+            width - default is 250
+            height - default is 250
+        loop 8 times (1, 9)
+            if i is odd
+                loop 4 times (0, 4)
+                    rectangleCornerX = startX + width / 8 * j * 2
+                    rectangleCornerY = startY + height / 8 * (i - 1)
+                    go to (rectangleCornerX, rectangleCornerY)
+                    call drawRectangle() with width / 8 and height / 8
+
+            if i is even
+                loop 4 times (0, 4)
+                    rectangleCornerX = startX + width / 8 + width / 8 * j * 2
+                    rectangleCornerY = startY + height / 8 * (i - 1)
+                    go to (rectangleCornerX, rectangleCornerY)
+                    call drawRectangle with width / 8 and height / 8
+
+
+    define drawRectangle()
+        param -
+            height
+            width
+        set heading at 0
+        set speed
+        forward width / 8
+        left 90
+        forward height / 8
+        left 90
+        forward width / 8
+        left 90
+        forward height / 8
+
+
+    define done()
+        turtle.done()
+
+Testing
+
+  Test 1
+    Input:
+        startX, startY = -100, -100
+        height = 200
+        width = 200
+
+    Expected output:
+        rectangle with width = 200 and height = 200 not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Test 2
+    Input:
+        startX, startY = -200, 10
+        height = 100
+        width =
+
+    Expected output:
+        rectangle with width = default (250) and height = 100 not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Test 3
+    Input:
+        startX, startY = 50, -100
+        height =
+        width = 75
+
+    Expected output:
+        rectangle with width = 75 and height = default (250) not filled in
+            bottom left corner should be at coordinate (startX, startY)
+        alternating black filled rectangles forming 8 x 8 grid inside outline rectangle
+            bottom left and top right rectangles should be black
+
+  Problems: NONE
