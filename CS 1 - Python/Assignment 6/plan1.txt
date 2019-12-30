@@ -1,0 +1,40 @@
+"""
+Parker Jackman
+Assignment 6
+plan 1
+"""
+
+Requirement Specifications:
+    Prompt user for input
+        Number of Sides
+        Side Length
+    Output
+        Area of polygon
+        rounded to 5 decimal places using round() function
+    Use two import functions to use math.pow() and tan()
+
+System Analysis:
+    area = (numSides * math.pow(sideLength, 2)) / (4 * tan(pi / numSides))
+
+System Design:
+    import math
+    from math import tan()
+
+    seek number of sides and side length from user
+    area = (numSides * math.pow(sideLength, 2)) / (4 * tan(pi / numSides))
+    print area rounded to 5 decimal places
+
+Testing:
+    Test 1
+        numSides = 5
+        sideLength = 6.5
+        The area of the polygon is 72.69017
+    Test 2
+        numSides = 6
+        sideLength = 8
+        The area of the polygon is 166.27688
+    Test 3
+        numSides = 10
+        sideLength = 8.6
+        The area of the polygon is 569.06369
+    Problems: NONE

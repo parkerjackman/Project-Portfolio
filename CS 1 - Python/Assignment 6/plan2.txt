@@ -1,0 +1,122 @@
+"""
+Parker Jackman
+Assignment 6
+plan 2
+"""
+
+Requirement Specifications:
+    Prompt user for input
+        Employee name
+        Number of hours worked
+        Hourly Pay Rate
+        Federal tax withholding rate
+        State tax withholding rate
+    Output
+        Employee's pay information
+        Headings of sections centered and spaces between sections
+        Main output header is in all caps
+        output numbers are right aligned with decimals aligned
+        colons and $ signs are aligned
+        only variables in print string
+        Single print statement
+
+System Analysis:
+    Make main header all uppercase
+    grossPay = numHours * payRate
+    fedWithholding = fedTax * grossPay
+    stateWithholding = stateTax * grossPay
+    totalDeduction = fedWithholding + stateWithholding
+    netPay = grossPay - totalDeduction
+    format output line by line
+
+System Design:
+    Collect input
+        Employee name
+        Number of hours worked
+        Hourly pay rate
+        Federal tax rate
+        state tax rate
+    Make name uppercase
+    Calculations
+        Gross Pay
+        Federal and State withholdings
+        Total deductions
+        Net Pay
+    Format federal and state taxes as percentages
+    Format output message
+    Print message
+
+Testing:
+
+Test 1
+    name = Marcus Applegate
+    numHours = 37
+    payRate = 8.50
+    redTax = 0.15
+    stateTax = 0.03
+
+    Output:
+
+    MARCUS APPLEGATE PAY INFORMATION
+
+                  Pay
+               Hours Worked:          37
+                   Pay Rate: $      8.50
+                  Gross Pay: $    314.50
+
+               Deductions
+Federal Withholding (15.0%): $     47.17
+   State Withholding (3.0%): $      9.44
+            Total Deduction: $     56.61
+
+                    Net Pay: $    257.89
+
+Test 2
+
+    name = parker jackman
+    numHours = 35
+    payRate = 11.50
+    redTax = 0.12
+    stateTax = 0.08
+
+    Output:
+
+     PARKER JACKMAN PAY INFORMATION
+
+                  Pay
+               Hours Worked:          35
+                   Pay Rate: $     11.50
+                  Gross Pay: $    402.50
+
+               Deductions
+Federal Withholding (12.0%): $     48.30
+   State Withholding (8.0%): $     32.20
+            Total Deduction: $     80.50
+
+                    Net Pay: $    322.00
+
+Test 3
+
+    name = Robert Hinsley
+    numHours = 24
+    payRate = 13.25
+    redTax = 0.10
+    stateTax = 0.04
+
+    Output:
+
+     ROBERT HINSLEY PAY INFORMATION
+
+                  Pay
+               Hours Worked:          24
+                   Pay Rate: $     13.25
+                  Gross Pay: $    318.00
+
+               Deductions
+Federal Withholding (10.0%): $     31.80
+   State Withholding (4.0%): $     12.72
+            Total Deduction: $     44.52
+
+                    Net Pay: $    273.48
+
+Problems: NONE
