@@ -1,0 +1,39 @@
+"""
+Parker Jackman
+Assignment 7
+Plan 1
+"""
+
+Requirement Specifications
+    input
+        number between 1 and 3
+    output
+        State what they chose and what the computer chose
+        State whether the user won lost or tied the computer
+
+System Analysis
+    rock (1) beats scissors (3)
+    scissors (3) beats paper (2)
+    paper (2) beats rock (1)
+
+System Design
+    Prompt user for input number
+    generate random number between 1 and 3 for computer
+    determine who won or if it was a tie
+    print results
+
+Testing (Make the random seed 1 so computer always chooses rock)
+
+  Test 1
+    Input: 1
+    output: You and the computer chose rock. It's a draw.
+
+  Test 2
+    Input: 2
+    Output: You chose paper. The computer chose rock. You won.
+
+  Test 3
+    Input: 3
+    Output: You chose scissors. The computer chose rock. You lost.
+
+  Problems: NONE

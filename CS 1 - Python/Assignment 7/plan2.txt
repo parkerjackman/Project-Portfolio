@@ -1,0 +1,54 @@
+"""
+Parker Jackman
+Assignment 7
+Plan 2
+"""
+
+Requirement Specifications
+    Input
+        Coordinates of center and radius for two different circles
+    output
+        Whether the circles are not touching, if they are overlapping, or if one is inside the other
+        (if one is inside the other state which one is inside)
+
+System Analysis
+    distance = sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    distance = radius1 + radius2 when the circles barely touch at one point
+    distance = abs(radius1 - radius2) when one is inside the other with the smaller circle touching the larger one
+
+System Design
+    Ask for coordinates of center and radii for circles
+    Calculate distance
+    Compare distance to relations in System Analysis
+    Print relation of circles
+
+Testing
+
+  Test 1
+    Input:
+        x1, y1 = 1, 1
+        radius1 = 4
+        x2, y2 = 10, 15
+        radius2 = 5
+    output:
+        The circles are not touching.
+
+  Test 2
+    Input:
+        x1, y1 = 2, 1
+        radius1 = 5
+        x2, y2 = 4, 4
+        radius2 = 6
+    output:
+        The circles are overlapping.
+
+  Test 3
+    Input:
+        x1, y1 = 4, 4
+        radius1 = 2
+        x2, y2 = 0, 0
+        radius2 = 10
+    output:
+        Circle 1 is inside circle 2.
+
+  Problems: NONE
